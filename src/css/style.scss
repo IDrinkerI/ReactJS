@@ -1,0 +1,26 @@
+.container{
+    width: 600px;
+    margin: 0 auto;
+}
+
+.salute{
+    color: darkgrey;
+    font-size: 2rem;
+    padding-top: 50px;
+}
+
+.message_field{
+    border: 2px solid lightgrey;
+    padding: 5px;
+    margin-bottom: 10px;
+
+    &-message{
+        margin: 0.3rem;
+    }
+
+    &-button{
+        display: block;
+        margin-left: auto;
+        padding: 5px;
+    }
+}
