@@ -9,7 +9,7 @@ const MessageField = (props) => {
         <>
             <div className="message_field">
                 {props.messages.map(
-                    t => <Message text={t} />
+                    m => <Message message={m} />
                 )}
             </div>
         </>
