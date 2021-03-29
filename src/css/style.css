@@ -1,0 +1,27 @@
+.container {
+  width: 600px;
+  margin: 0 auto;
+}
+
+.message_field {
+  border: 2px solid lightgrey;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.message_field-header {
+  color: darkgrey;
+  font-size: 2rem;
+  padding-top: 50px;
+}
+
+.message_field-message {
+  margin: 0.3rem;
+}
+
+.message_field-button {
+  display: block;
+  margin-left: auto;
+  padding: 5px;
+}
+/*# sourceMappingURL=style.css.map */
