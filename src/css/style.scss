@@ -3,16 +3,16 @@
     margin: 0 auto;
 }
 
-.salute{
-    color: darkgrey;
-    font-size: 2rem;
-    padding-top: 50px;
-}
-
 .message_field{
     border: 2px solid lightgrey;
     padding: 5px;
     margin-bottom: 10px;
+
+    &-header{
+        color: darkgrey;
+        font-size: 2rem;
+        padding-top: 50px;
+    }
 
     &-message{
         margin: 0.3rem;
