@@ -2,6 +2,8 @@ import React from "react";
 import Message from "./Message.jsx";
 import MessageFieldHeader from "./MessageFieldHeader.jsx";
 
+import "../css/message_field.scss";
+
 const MessageField = (props) => {
     const [messages, setMessages] = React.useState(props.messages);
 
