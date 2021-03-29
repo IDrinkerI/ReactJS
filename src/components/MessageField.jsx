@@ -1,6 +1,7 @@
 import React from "react";
 import Message from "./Message.jsx";
 import MessageFieldHeader from "./MessageFieldHeader.jsx";
+import MessageFieldButton from "./MessageFieldButton.jsx";
 
 import "../css/message_field.scss";
 
@@ -16,7 +17,7 @@ const MessageField = (props) => {
                 )}
             </div>
 
-            <button className="message_field-button" onClick={() => setMessages(messages.concat("Нет"))}>Ответить</button>
+            <MessageFieldButton onClick={() => setMessages(messages.concat("No"))} />
         </>
     )
 }
