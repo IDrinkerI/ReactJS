@@ -3,10 +3,11 @@ import React from "react";
 import "../css/message.scss";
 
 const Message = (props) => {
-    let { userName, text, isInterlocutor } = props.message;
+    let { userName, text, isUser } = props.message;
+
     return (
-        <div className={isInterlocutor ? "message message-interlocutor" : "message"}>
-            <p className="message-user">{userName}:</p>
+        <div className={isUser ? "message message-user" : "message"}>
+            <p className="message-name">{userName}:</p>
             <p className="message-text">{text}</p>
         </div >
     )

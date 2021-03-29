@@ -1,8 +1,8 @@
 .message{
     margin: 0.3rem;
-    text-align: right;
+    text-align: left;
 
-    &-user{
+    &-name{
         margin: 0;
         font-weight: 700;
         font-size: 1.25rem;
@@ -12,7 +12,7 @@
         margin: 0;
     }
 
-    &-interlocutor{
-        text-align: left;
+    &-user{
+        text-align: right;
     }
 }
