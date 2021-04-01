@@ -1,22 +1,17 @@
 import React from "react";
 import Message from "./Message.jsx";
-import MessageFieldHeader from "./MessageFieldHeader.jsx";
 
 import "../css/message_field.scss";
 
 const MessageField = (props) => {
-    const [messages, setMessages] = React.useState(props.messages);
 
     return (
         <>
-            <MessageFieldHeader />
             <div className="message_field">
-                {messages.map(
-                    t => <Message text={t} />
+                {props.messages.map(
+                    m => <Message message={m} />
                 )}
             </div>
-
-            <button className="message_field-button" onClick={() => setMessages(messages.concat("Нет"))}>Ответить</button>
         </>
     )
 }
