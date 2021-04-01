@@ -50,8 +50,8 @@ const Messenger = () => {
                 {/*<InputField text={inputMessage} onChange={updateInputMessage} />
                 <MessengerButton onClick={messengerButtonHandler} /> */}
 
-                <TextField value={inputMessage} onChange={updateInputMessage} />
-                <Button onClick={messengerButtonHandler}>Send</Button>
+                <TextField fullWidth={true} style={{ marginRight: "10px" }} value={inputMessage} onChange={updateInputMessage} />
+                <Button style={{ backgroundColor: "lightgrey" }} onClick={messengerButtonHandler}>Send</Button>
             </form>
         </div>
     )
