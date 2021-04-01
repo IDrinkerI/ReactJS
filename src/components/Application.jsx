@@ -8,8 +8,8 @@ import MessageEntity from "../MessageEntity.js";
 import Bot from "../Bot.js";
 
 const Application = () => {
-    let [messages, setMessages] = React.useState([Bot.getGreeting()]);
-    let [inputMessage, setInputMessage] = React.useState();
+    const [messages, setMessages] = React.useState([Bot.getGreeting()]);
+    const [inputMessage, setInputMessage] = React.useState();
 
     const messangerButtonHandler = React.useCallback(() => {
         if (!inputMessage) return;

@@ -6,7 +6,7 @@ const Message = (props) => {
     let { userName, text, isUser } = props.message;
 
     return (
-        <div className={isUser ? "message message-user" : "message"}>
+        <div className={`message ${isUser ? "message-user" : ""}`}>
             <p className="message-name">{userName}:</p>
             <p className="message-text">{text}</p>
         </div >
