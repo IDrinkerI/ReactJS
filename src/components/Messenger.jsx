@@ -17,16 +17,16 @@ const Messenger = () => {
     const [messages, setMessages] = React.useState([Bot.getGreeting()]);
     const [inputMessage, setInputMessage] = React.useState("");
     const [chatList, setChatList] = React.useState(ChatListRepo.GetChatList());
-    const [selectedChat, setSelectedChat] = React.useState(0);
+    const [selectedChatId, setSelectedChatId] = React.useState(0);
 
-    const selectChatHandler = React.useCallback((event) => setSelectedChat(event.target.selectedIndex));
+    const selectChatHandler = React.useCallback(i => setSelectedChatId(i));
 
     const updateInputMessage = React.useCallback((event) => setInputMessage(event.target.value));
 
     const messengerButtonHandler = React.useCallback(() => {
         if (!inputMessage) return;
 
-        let newMessage = new MessageEntity("You", inputMessage, true);
+        const newMessage = new MessageEntity("You", inputMessage, true);
         setMessages([...messages, newMessage]);
 
         setInputMessage("");
@@ -43,7 +43,7 @@ const Messenger = () => {
             <MessengerTitle />
 
             <div className="messenger-wrapper">
-                <ChatList items={chatList} onChangeSelected={selectChatHandler} />
+                <ChatList items={chatList} selectedChatId={selectedChatId} onChangeSelected={selectChatHandler} />
                 <MessageField messages={messages} />
             </div>
             <form className="input_form">

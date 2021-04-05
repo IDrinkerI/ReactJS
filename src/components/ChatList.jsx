@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import ChatItem from "./ChatItem.jsx";
+import { List } from "@material-ui/core";
 
-import "../css/chat_list.scss";
+//import "../css/chat_list.scss";
 
 const ChatList = (props) => {
     return (
-        <select size="2" className="chat_list" onChange={props.onChangeSelected}>
-            {props.items.map((item) =>
-                <ChatItem entity={item} key={item.id} />
+        <List>{
+            props.items.map((item) =>
+                <ChatItem entity={item} selectedChatId={props.selectedChatId} onClick={props.onChangeSelected} key={item.id} />
             )}
-        </select>
+        </List >
     )
 }
 
