@@ -23,11 +23,7 @@ const MainRouter = () => {
                     <Home />
                 </Route>
 
-                <Route exact path="/chat">
-                    <Messenger />
-                </Route>
-
-                <Route path="/chat/:chatId">
+                <Route path="/chat/:chatId?">
                     <Messenger />
                 </Route>
 
