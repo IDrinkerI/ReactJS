@@ -6,7 +6,7 @@ import MessageField from "./MessageField.jsx";
 import { Button, TextField } from "@material-ui/core";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import MessageEntity from "../MessageEntity.js";
+import MessageModel from "../model/MessageModel.js";
 import { addMessageAction } from "../store/message/actions.js";
 
 import "../css/messenger.scss";
@@ -21,7 +21,7 @@ const Messenger = () => {
 
     const messengerButtonHandler = React.useCallback(() => {
         if (!inputMessage) return;
-        const newMessage = new MessageEntity(userName, inputMessage, true);
+        const newMessage = new MessageModel(userName, inputMessage, true);
         dispath(addMessageAction(chatId, newMessage));
 
         setInputMessage("");

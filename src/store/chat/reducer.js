@@ -1,5 +1,5 @@
 import { ADD_CHAT, REMOVE_CHAT } from "./types";
-import ChatEntity from "../../ChatEntity.js";
+import ChatModel from "../../model/ChatModel.js";
 
 
 const initionState = {
@@ -15,7 +15,7 @@ export const chatReducer = (state = initionState, action) => {
                 availableChatId: (state.availableChatId ?? 0) + 1,
                 chatList: [
                     ...state.chatList,
-                    new ChatEntity(action.payload, "" + state.availableChatId)
+                    new ChatModel(action.payload, "" + state.availableChatId)
                 ]
             }
         case REMOVE_CHAT:
