@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import ChatItem from "./ChatItem.jsx";
 import { List } from "@material-ui/core";
 import { useSelector, useDispatch } from "react-redux";
@@ -6,12 +6,12 @@ import { addChatAction, removeChatAction } from "../store/chat/actions";
 
 import "../css/chat_list.scss";
 
-const ChatList = (props) => {
+const ChatList = () => {
     const chatList = useSelector(store => store.chat.chatList);
     const dispatch = useDispatch();
 
     const addChat = () => {
-        dispatch(addChatAction("chat"));
+        dispatch(addChatAction(`Chat №${chatList.length + 1}`));
     }
 
     const removeChat = () => {
