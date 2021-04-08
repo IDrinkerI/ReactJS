@@ -13,7 +13,7 @@ export const messageReducer = (store = initialStore, action) => {
             const item = store.messageList.find(item => item.chatId === action.payload.chatId);
 
             if (item) {
-                item.messages.push(action.payload.message);
+                item.messages = [...item.messages, action.payload.message];
             }
             else {
                 const newItem = { chatId: "" + action.payload.chatId, messages: [action.payload.message] };
