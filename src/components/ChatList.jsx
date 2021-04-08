@@ -7,15 +7,15 @@ import { addChatAction, removeChatAction } from "../store/chat/actions";
 import "../css/chat_list.scss";
 
 const ChatList = () => {
-    const chatList = useSelector(store => store.chat.chatList);
+    const { chatList, selectedChatId, availableChatId } = useSelector(store => store.chat);
     const dispatch = useDispatch();
 
     const addChat = () => {
-        dispatch(addChatAction(`Chat №${chatList.length + 1}`));
+        dispatch(addChatAction(`Chat №${availableChatId + 1}`));
     }
 
     const removeChat = () => {
-        dispatch(removeChatAction());
+        dispatch(removeChatAction(selectedChatId));
     }
 
     useEffect(() => addChat(), []);
