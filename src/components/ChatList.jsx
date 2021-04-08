@@ -20,7 +20,10 @@ const ChatList = () => {
         dispatch(removeChatAction(chatId));
     }
 
-    useEffect(() => addChat(), []);
+    useEffect(() => {
+        if (chatList.length == 0)
+            addChat()
+    }, []);
 
     return (
         <div className="chat_list">
