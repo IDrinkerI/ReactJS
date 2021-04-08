@@ -15,7 +15,6 @@ import "../css/messenger.scss";
 const Messenger = () => {
     const [messages, setMessages] = React.useState(new MessageList());
     const [inputMessage, setInputMessage] = React.useState("");
-    //const [chatList, setChatList] = React.useState(ChatListRepo.GetChatList());
     const [selectedChatId, setSelectedChatId] = React.useState(0);
     const { chatId } = useParams();
     const history = useHistory();
