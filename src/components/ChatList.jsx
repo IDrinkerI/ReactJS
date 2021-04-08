@@ -11,7 +11,7 @@ const ChatList = () => {
     const dispatch = useDispatch();
 
     const addChat = () => {
-        dispatch(addChatAction(`Chat №${availableChatId + 1}`));
+        dispatch(addChatAction(`Chat №${availableChatId}`));
     }
 
     const removeChat = () => {

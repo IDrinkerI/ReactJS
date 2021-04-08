@@ -4,7 +4,7 @@ import ChatEntity from "../../ChatEntity.js";
 
 const initionState = {
     chatList: [],
-    availableChatId: 0,
+    availableChatId: 1,
     selectedChatId: 0,
 };
 
