@@ -11,16 +11,16 @@ const Profile = () => {
         setInputText(e.target.value);
     }
 
-    const onClickHandler = () => {
+    const changeNameButtonHandler = () => {
         dispath(changeNameAction(inputText));
     }
 
     return (
         <>
             <h1>Profile</h1>
-            <p>{name}</p>
+            <p>Current name: {name}</p>
             <input required type="text" onChange={onChangeHadler} />
-            <button onClick={onClickHandler}>Change Name</button>
+            <button onClick={changeNameButtonHandler}>Change Name</button>
         </>
     )
 }
