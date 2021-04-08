@@ -3,7 +3,8 @@ import ChatEntity from "../../ChatEntity.js";
 
 
 const initialState = {
-    chats: []
+    chats: [],
+    availableChatId: 0,
 };
 
 export const chatReducer = (state = initionState, action) => {
@@ -11,9 +12,10 @@ export const chatReducer = (state = initionState, action) => {
         case ADD_CHAT:
             return {
                 ...state,
+                availableChatId: (state.availableChatId ?? 0) + 1,
                 chats: [
                     ...state.chats,
-                    new ChatEntity(action.payload)
+                    new ChatEntity(action.payload, state.availableChatId)
                 ]
             }
         default:
