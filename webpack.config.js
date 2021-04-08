@@ -11,6 +11,9 @@ module.exports = {
     target: "web",
     devtool: "source-map",
     mode: "development",
+    devServer: {
+        historyApiFallback: true,
+    },
     module: {
         rules: [
             {

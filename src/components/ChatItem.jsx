@@ -7,8 +7,8 @@ const ChatItem = (props) => {
     let { title, id } = props.entity;
 
     return (
-        <ListItem button selected={props.selectedChatId === id}>
-            <ListItemText primary={title} onClick={() => props.onClick(id)} />
+        <ListItem button onClick={() => props.onClick(id)} selected={props.selectedChatId === id}>
+            <ListItemText primary={title} />
         </ListItem>
     )
 }
