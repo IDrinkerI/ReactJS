@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import ChatItem from "./ChatItem.jsx";
 import { List } from "@material-ui/core";
 import { useSelector, useDispatch } from "react-redux";
-import { addChatAction, removeChatAction } from "../store/chats/actions";
+import { addChatAction, removeChatAction } from "../store/chat/actions";
 
 import "../css/chat_list.scss";
 
@@ -24,7 +24,7 @@ const ChatList = (props) => {
         <div className="chat_list">
             <List>{
                 chatList.map((item) =>
-                    <ChatItem entity={item} selectedChatId={props.selectedChatId} onClick={props.onChangeSelected} key={item.id} />
+                    <ChatItem entity={item} key={item.id} />
                 )}
             </List >
             <div className="button-wrapper">

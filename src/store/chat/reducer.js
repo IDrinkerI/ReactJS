@@ -1,10 +1,11 @@
-import { ADD_CHAT, REMOVE_CHAT } from "./types";
+import { ADD_CHAT, REMOVE_CHAT, SELECT_CHAT } from "./types";
 import ChatEntity from "../../ChatEntity.js";
 
 
 const initionState = {
-    chats: [],
+    chatList: [],
     availableChatId: 0,
+    selectedChatId: 0,
 };
 
 export const chatReducer = (state = initionState, action) => {
@@ -13,17 +14,22 @@ export const chatReducer = (state = initionState, action) => {
             return {
                 ...state,
                 availableChatId: (state.availableChatId ?? 0) + 1,
-                chats: [
-                    ...state.chats,
+                chatList: [
+                    ...state.chatList,
                     new ChatEntity(action.payload, "" + state.availableChatId)
                 ]
             }
         case REMOVE_CHAT:
-            const index = state.chats.find(chat => chat.id === action.payload);
-            state.chats.splice(index, 1);
+            const index = state.chatList.find(chat => chat.id === action.payload);
+            state.chatList.splice(index, 1);
 
             return {
                 ...state
+            }
+        case SELECT_CHAT:
+            return {
+                ...state,
+                selectedChatId: action.payload,
             }
         default:
             return state;

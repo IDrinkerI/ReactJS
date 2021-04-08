@@ -5,7 +5,7 @@ import ChatList from "./ChatList.jsx";
 import MessageField from "./MessageField.jsx";
 import { Button, TextField } from "@material-ui/core";
 import { useParams, useHistory } from "react-router-dom";
-
+import { useDispatch, useSelector } from "react-redux";
 import MessageEntity from "../MessageEntity.js";
 import MessageList from "../MessageList.js";
 import Bot from "../Bot.js";
@@ -15,14 +15,8 @@ import "../css/messenger.scss";
 const Messenger = () => {
     const [messages, setMessages] = React.useState(new MessageList());
     const [inputMessage, setInputMessage] = React.useState("");
-    const [selectedChatId, setSelectedChatId] = React.useState(0);
     const { chatId } = useParams();
     const history = useHistory();
-
-    const selectChatHandler = React.useCallback(id => {
-        setSelectedChatId(id);
-        history.push(`/chat/${id}`);
-    });
 
     const updateInputMessage = React.useCallback((event) => setInputMessage(event.target.value));
 
@@ -45,7 +39,7 @@ const Messenger = () => {
             <MessengerTitle />
 
             <div className="messenger-wrapper">
-                <ChatList selectedChatId={selectedChatId} onChangeSelected={selectChatHandler} />
+                <ChatList />
                 <MessageField messages={messages.getMessagesById(chatId)} />
             </div>
             <form className="input_form">
