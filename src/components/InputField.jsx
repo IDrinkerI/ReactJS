@@ -3,7 +3,7 @@ import React from "react";
 import "../css/input_field.scss";
 
 const InputField = (props) => {
-    let text = props.text;
+    const text = props.text;
 
     const onChangeHandler = (event) => props.onChange(event.target.value);
 

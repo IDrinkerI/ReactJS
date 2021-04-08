@@ -4,8 +4,8 @@ import MessengerTitle from "./MessengerTitle.jsx";
 import ChatList from "./ChatList.jsx";
 import MessageField from "./MessageField.jsx";
 import { Button, TextField } from "@material-ui/core";
-import { useParams, useHistory } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import MessageEntity from "../MessageEntity.js";
 import { addMessageAction } from "../store/message/actions.js";
 

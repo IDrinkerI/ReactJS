@@ -5,7 +5,7 @@ import { useHistory, useParams } from "react-router-dom";
 //import "../css/chat_list-item.scss";
 
 const ChatItem = (props) => {
-    let { title, id } = props.entity;
+    const { title, id } = props.entity;
     const { chatId } = useParams();
     const history = useHistory();
 

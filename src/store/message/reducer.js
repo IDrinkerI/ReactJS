@@ -23,7 +23,6 @@ export const messageReducer = (store = initialStore, action) => {
                 ...store,
             }
 
-
         default:
             return store;
     }

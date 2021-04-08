@@ -3,7 +3,7 @@ import React from "react";
 import "../css/message.scss";
 
 const Message = (props) => {
-    let { userName, text, isUser } = props.message;
+    const { userName, text, isUser } = props.message;
 
     return (
         <div className={`message ${isUser ? "message-user" : ""}`}>
