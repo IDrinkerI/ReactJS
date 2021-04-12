@@ -10,7 +10,7 @@ const Message = (props) => {
     const profileName = useSelector(store => store.profile.name);
     const selectedMessageId = useSelector(store => store.message.selectedMessageId);
 
-    const onClicHadnler = () => {
+    const onClickHandler = () => {
         dispatch(selectMessageAction(id));
     }
 
@@ -18,7 +18,7 @@ const Message = (props) => {
         <div className={`
         message ${(profileName == userName) ? "message-user" : ""}
         ${(id == selectedMessageId) ? "message-selected" : ""}
-        `} onClick={onClicHadnler}>
+        `} onClick={onClickHandler}>
             <p className="message-name">{userName}:</p>
             <p className="message-text">{text}</p>
         </div >
