@@ -1,4 +1,4 @@
-import MessageEntity from "./MessageEntity.js"
+import MessageEntity from "./model/MessageModel.js"
 
 export default class Bot {
     static name = "Bot";

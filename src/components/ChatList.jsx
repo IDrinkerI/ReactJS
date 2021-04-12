@@ -1,36 +1,35 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import ChatItem from "./ChatItem.jsx";
 import { List } from "@material-ui/core";
-import ChatEntity from "../ChatEntity.js";
+import { useSelector, useDispatch } from "react-redux";
+import { addChatAction, removeChatAction } from "../store/chat/actions";
+import { useParams } from "react-router-dom";
 
 import "../css/chat_list.scss";
 
-const ChatList = (props) => {
-    const [freeId, setFreeId] = useState(1);
-    const [chatList, setChatList] = useState([]);
+const ChatList = () => {
+    const { chatList, availableChatId } = useSelector(store => store.chat);
+    const { chatId } = useParams();
+    const dispatch = useDispatch();
 
     const addChat = () => {
-        setChatList([...chatList, new ChatEntity(`Chat №${freeId}`, "" + freeId)]);
-        setFreeId(freeId + 1);
+        dispatch(addChatAction(`Chat №${availableChatId}`));
     }
 
     const removeChat = () => {
-        let index = chatList.findIndex(item => item.id === props.selectedChatId);
-        if (index == -1) { return; }
-
-        let newList = [...chatList];
-        newList.splice(index, 1);
-        setChatList(newList);
-        console.log(props.selectedChatId);
+        dispatch(removeChatAction(chatId));
     }
 
-    useEffect(() => addChat(), []);
+    useEffect(() => {
+        if (chatList.length == 0)
+            addChat()
+    }, []);
 
     return (
         <div className="chat_list">
             <List>{
                 chatList.map((item) =>
-                    <ChatItem entity={item} selectedChatId={props.selectedChatId} onClick={props.onChangeSelected} key={item.id} />
+                    <ChatItem entity={item} key={item.id} />
                 )}
             </List >
             <div className="button-wrapper">
