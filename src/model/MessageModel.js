@@ -1,7 +1,7 @@
 export default class MessageModel {
-    constructor(userName, text, isUser = false) {
+    constructor(userName, text, id) {
         this.userName = userName;
         this.text = text;
-        this.isUser = isUser;
+        this.id = id;
     }
 }
