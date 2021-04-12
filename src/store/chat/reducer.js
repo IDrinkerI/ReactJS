@@ -21,10 +21,13 @@ export const chatReducer = (state = initionState, action) => {
         case REMOVE_CHAT:
             const index = state.chatList.findIndex(chat => chat.id === action.payload);
             if (index == -1) { return state; }
-            state.chatList.splice(index, 1);
+
+            const newChatList = state.chatList;
+            newChatList.splice(index, 1);
 
             return {
-                ...state
+                ...state,
+                chatList: newChatList,
             }
         default:
             return state;

@@ -10,17 +10,19 @@ const initialStore = {
 export const messageReducer = (store = initialStore, action) => {
     switch (action.type) {
         case ADD_MESSAGE:
-            const item = store.messageList.find(item => item.chatId === action.payload.chatId);
+            const newMessageList = store.messageList;
+            const item = newMessageList.find(item => item.chatId === action.payload.chatId);
 
             if (item) {
                 item.messages = [...item.messages, action.payload.message];
             }
             else {
                 const newItem = { chatId: "" + action.payload.chatId, messages: [action.payload.message] };
-                store.messageList.push(newItem);
+                newMessageList.push(newItem);
             }
             return {
                 ...store,
+                messageList: newMessageList,
             }
 
         default:

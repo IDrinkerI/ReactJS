@@ -11,9 +11,9 @@ const MessageField = () => {
     const { chatId } = useParams();
     const { messageList } = useSelector(store => store.message);
     const messages = messageList.find(item => item.chatId === chatId)?.messages;
-    const dispath = useDispatch();
+    const dispatch = useDispatch();
 
-    React.useEffect(() => dispath(
+    React.useEffect(() => dispatch(
         addMessageAction(1, Bot.getGreeting())
     ), []);
 
@@ -22,7 +22,7 @@ const MessageField = () => {
 
         let lastMessage = messages[messages.length - 1];
         if (lastMessage?.isUser)
-            dispath(addMessageAction(chatId, Bot.getOpinion(lastMessage.text)));
+            dispatch(addMessageAction(chatId, Bot.getOpinion(lastMessage.text)));
     }, [messages]);
 
     return (
