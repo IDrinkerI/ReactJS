@@ -15,4 +15,12 @@
     &-user{
         text-align: right;
     }
+
+    &-selected{
+        background-color: rgb(220,220,220);
+    }
+
+    &:hover{
+        background-color: rgb(240,240,240);
+    }
 }

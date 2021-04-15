@@ -1,0 +1,9 @@
+.notification{
+    animation: flashing 0.75s ease-in 0s infinite;
+}
+
+@keyframes flashing{    
+    to{
+        background-color: orange;
+    }
+}

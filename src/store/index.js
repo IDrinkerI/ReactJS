@@ -1,13 +1,32 @@
-import { combineReducers, createStore } from "redux";
+import { applyMiddleware, combineReducers, compose, createStore } from "redux";
+import thunk from "redux-thunk";
+import { persistStore, persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
 
 import { chatReducer } from "./chat/reducer.js";
 import { messageReducer } from "./message/reducer.js";
 import { profileReducer } from "./profile/reducer.js";
 
-export const store = createStore(
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const persistConfig = {
+    key: "react-messanger",
+    storage,
+    whitelist: ["chat", "message", "profile"],
+}
+
+const persistedReduser = persistReducer(
+    persistConfig,
     combineReducers({
         chat: chatReducer,
         message: messageReducer,
         profile: profileReducer,
-    }), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    })
+)
+
+export const store = createStore(
+    persistedReduser,
+    composeEnhancers(applyMiddleware(thunk))
 );
+
+export const persistor = persistStore(store);

@@ -1,9 +1,7 @@
 import React from "react";
 import Message from "./Message.jsx";
-import Bot from "../Bot.js";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { addMessageAction } from "../store/message/actions.js";
 
 import "../css/message_field.scss";
 
@@ -11,19 +9,6 @@ const MessageField = () => {
     const { chatId } = useParams();
     const { messageList } = useSelector(store => store.message);
     const messages = messageList.find(item => item.chatId === chatId)?.messages;
-    const dispatch = useDispatch();
-
-    React.useEffect(() => dispatch(
-        addMessageAction(1, Bot.getGreeting())
-    ), []);
-
-    React.useEffect(() => {
-        if (!messages) { return; }
-
-        let lastMessage = messages[messages.length - 1];
-        if (lastMessage?.isUser)
-            dispatch(addMessageAction(chatId, Bot.getOpinion(lastMessage.text)));
-    }, [messages]);
 
     return (
         <>
