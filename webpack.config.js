@@ -6,11 +6,10 @@ module.exports = {
     entry: path.join(__dirname, "src", "index.jsx"),
     output: {
         path: path.join(__dirname, "dist"),
-        filename: "main.js"
+        filename: "./main.js",
+        publicPath: "/",
     },
-    target: "web",
     devtool: "source-map",
-    mode: "development",
     devServer: {
         historyApiFallback: true,
     },
